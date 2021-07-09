@@ -13,6 +13,7 @@ Es necesario tener una base de datos en el servidor MySQL o MariaDB. Se recomien
 	3.  Otorgamos al usuario todos los privilegios hacia esa base de datos:GRANT ALL PRIVILE-GES ON ’database’.* TO ’user’@’localhost’;
 
 Por  ́ultimo modificamos el fichero DBconnection.txt con los datos correspondientes para conectarsea la base de datos que acabamos de crear. Este fichero contiene el siguiente formato:
+
 	host=’localhost’
 	user=’annon’
 	passwd=’password’
