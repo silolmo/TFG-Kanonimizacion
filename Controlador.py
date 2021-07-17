@@ -326,12 +326,11 @@ class Import(QDialog, Ui_ImportDialog):
             self.edit_attributes.setText(archivo[0])        
 
     def importData(self):
-        #ARREGLAR: peta cuando hay campos vacíos
         bd.drop_tables()
 
         attributes = f''
         if (len(self.edit_attributes.text())==0):
-            attributes = 'archivos/attributes.txt'
+            attributes = 'attributes.txt'
         else:
             attributes = self.edit_attributes.text()
 
@@ -347,8 +346,8 @@ class Import(QDialog, Ui_ImportDialog):
             bd.drop_tables()
 
     def addAttributesTypes(self):
-        if(self.edit_data.text()==''):
-            QMessageBox.about(self, "Error" ,"Para añadir los tipos de los atributos primero tienes que indicar el archivo que contiene los datos")
+        if(self.edit_data.text()=='' or self.edit_separator.text()==""):
+            QMessageBox.about(self, "Error" ,"Para añadir los tipos de los atributos primero tienes que indicar el archivo que contiene los datos y el separador")
         else:
             f = open(f"{self.edit_data.text()}", "r")
             line = f.readline()
@@ -378,7 +377,7 @@ class Import(QDialog, Ui_ImportDialog):
 
     def saveAttributesTypes(self):
         if(self.gridLayout_types.rowCount()>1):
-            f = open('archivos/attributes.txt', 'w')
+            f = open('attributes.txt', 'w')
             line = f''
             for i in range(1, self.gridLayout_types.rowCount()):
                 type = self.gridLayout_types.itemAtPosition(i, 1).widget().currentText()
@@ -513,7 +512,7 @@ class Hierarchy(QDialog, Ui_HierarchyDialog):
             QMessageBox.about(self, "Actualización correcta", "Se han actualizado correctamente los datos de la jerarquía de "+attribute)
 
     def importHierarchy(self):
-        archivo = QFileDialog.getSaveFileName(self, 'Exportar datos', '~/Escritorio', "(*.csv *.txt)")
+        archivo = QFileDialog.getOpenFileName(self, 'Exportar datos', '~/Escritorio', "(*.csv *.txt)")
         if(len(archivo[0])>0):
             file = open(archivo[0], 'r')
             

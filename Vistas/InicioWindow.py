@@ -163,8 +163,8 @@ class Ui_InicioWindow(object):
         _translate = QtCore.QCoreApplication.translate
         self.label_5.setText(_translate("InicioWindow", "TRABAJO DE FIN DE GRADO"))
         self.label_3.setText(_translate("InicioWindow", "Aplicación de la técnica de k-anonimización sobre bases de datos relacionales"))
-        self.label_4.setText(_translate("InicioWindow", "Silvia Olmos Lara"))
-        self.label_6.setText(_translate("InicioWindow", "Mercedes Martínez González"))
+        self.label_4.setText(_translate("InicioWindow", "Autora: Silvia Olmos Lara"))
+        self.label_6.setText(_translate("InicioWindow", "Tutora: Mercedes Martínez González"))
         self.pushButton.setText(_translate("InicioWindow", "Empezar"))
 
 
